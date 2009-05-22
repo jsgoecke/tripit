@@ -1,0 +1,5 @@
+users: 
+    guido: 
+        uri: http://www.tripit.com/account/badge/id/C5ADE1DB0CF5651952DFFAFA612855F5/div_id/tripit-badge/badge.js
+    jdoe:
+        uri: http://www.tripit.com/account/badge/id/F85F0073CE55CF42640BD327B68EB11E/div_id/tripit-badge/badge.js

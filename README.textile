@@ -1,0 +1,72 @@
+h1. Tripit Component for Adhearsion
+
+* <a href="http://jsgoecke.github.com/tripit">http://jsgoecke.github.com/tripit</a>
+
+h2. Description
+
+Provides a dialplan method for determining the user's current time and GMT offset based on their <a href='http://www.tripit.com/uhp/helpFaq#bb0'>Tripit Badge</a>.
+
+h2. Requirements
+
+* <a href="http://adhearsion.com">Adhearsion v0.8+</a>
+* <a href="http://github.com/tenderlove/nokogiri">Nokogiri</a>
+* <a href="http://json.rubyforge.org/">JSON</a>
+* <a href="http://rest-client.heroku.com/rdoc/">Rest-Client</a>
+
+h2. Install
+
+In the ~ahn_project/components directory:
+
+<pre>git clone git://github.com/jsgoecke/tripit.git</pre>
+
+h2. Configuration
+
+Add your users and their corresponding <a href='http://www.tripit.com/uhp/helpFaq#bb0'>Tripit Badge</a> Javascript URI to the tripit.yml file. Examples are already in the file, although you will need to add a valid URI.
+
+h2. Example
+
+Here is an example for your dialplan.rb:
+
+<pre>
+<code>
+	adhearsion {
+	  user_time = tripit_user_time?('guido')
+	  if user_time
+	    ahn_log.tripit.debug user_time
+	  else
+	    ahn_log.tripit.debug 'Error'
+	  end
+
+	  user_time = tripit_user_time?('jdoe')
+	  if user_time
+	    ahn_log.tripit.debug user_time
+	  else
+	    ahn_log.tripit.debug 'Error'
+	  end
+	}
+</code>
+</pre>
+
+h2. License
+
+The MIT License
+ 
+Copyright (c) 2009 Jason Goecke
+ 
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+ 
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+ 
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
